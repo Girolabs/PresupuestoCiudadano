@@ -5,13 +5,14 @@
 
   {% block contenido%}
 
+ <link rel="stylesheet" href="{% static 'bubble_chart/css/reset.css' %}">
+  <link rel="stylesheet" href="{% static 'bubble_chart/css/bubble_chart.css' %} ">
+
+    <div class="container container-principal gastos">
 
 
-    <div class="container container-principal ciclo">
 
-
-
-		<div class="row">
+		<div class="row bg-verde margin">
 			<div class="col-md-12">
 
 				<div class="">
@@ -21,28 +22,28 @@
 					</div>
 
 					<div class="col-md-6 text-center">
-						<img class=" ciclo wow fadeInUp" src="{% static 'img/20-ciclo.png' %} " > </img>
+						<img class=" moneda-gasto wow fadeInUp" src="{% static 'img/24-moneda.png' %} " > </img>
 					</div>
 				</div>
 				
 			</div>
-			<hr>
+			
 		</div>
 
 		<p>El Presupuesto General de la Nación contiene la previsión de los ingresos y la asignación de los gastos.
 
-Los gastos son los montos que el Estado calcula utilizar para:
+Los gastos son los montos que el Estado calcula utilizar para:</p>
+
 
 <ul>
 <li>construir caminos, puentes, hospitales, escuelas,</li>
 <li> brindar servicios de luz, apoyo a estudiantes a través de becas,</li>
 <li>apoyar a programas de combate a la pobreza, asistencia a adultos mayores, asistencia a niños de la calle, asistencia a la población en casos de emergencia, etc.</li>
 </ul>
+<p>Para entender mejor a donde va nuestro dinero, en el 2015 de cada 100.000gs:</p>
 
 
-Para entender mejor a donde va nuestro dinero, en el 2015 de cada 100.000gs:</p>
-
-<img src="{% static 'img/18-billetes.png' %}" class="img-responsive">
+<img src="{% static 'img/3.png' %}" class="img-responsive">
 
 <h2>Funciones</h2>
 
@@ -53,7 +54,7 @@ Para entender mejor a donde va nuestro dinero, en el 2015 de cada 100.000gs:</p>
 	<p>El tamaño de los circulos dependen de del monto presupuestado por función.</p>
 </div>
 <div class="col-md-6">
-<img src="{% static 'img/ciclo-01.png' %}" class="img-responsive">
+	<img class="img-responsive" src="{% static 'img/1.png' %}" ></img>
 </div>
 
 
@@ -67,6 +68,11 @@ Gobienos Departamentales, empresas Públicas (Ande INC etc), entidadaes de Segur
 dades nacionales, Contraloría General de la República etc.</p>
 
 
-<img src="{% static 'img/2-congreso.png' %}" class="img-responsive">
+<img src="{% static 'img/2.png' %}" class="img-responsive">
 </div>
+
+
+ <script src="{% static 'bubble_chart/lib/d3.js' %}"></script>
+  <script src="{% static 'bubble_chart/src/tooltip.js' %}"></script>
+  <script src="{% static 'bubble_chart/src/bubble_chart.js' %}"></script>
     {% endblock %}
