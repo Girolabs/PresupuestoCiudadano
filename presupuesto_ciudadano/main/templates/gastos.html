@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+					
+
+  {% block contenido%}
+
+
+
+    <div class="container container-principal ciclo">
+
+
+
+		<div class="row">
+			<div class="col-md-12">
+
+				<div class="">
+					<div class="col-md-6 titulo">
+						<h1 class="wow fadeInLeft">¿En qué se gasta el presupuesto?</h1>
+						<a class="btn btn-default  wow fadeInUp">Descargar este capítulo</a>
+					</div>
+
+					<div class="col-md-6 text-center">
+						<img class=" ciclo wow fadeInUp" src="{% static 'img/20-ciclo.png' %} " > </img>
+					</div>
+				</div>
+				
+			</div>
+			<hr>
+		</div>
+
+		<p>El Presupuesto General de la Nación contiene la previsión de los ingresos y la asignación de los gastos.
+
+Los gastos son los montos que el Estado calcula utilizar para:
+
+<ul>
+<li>construir caminos, puentes, hospitales, escuelas,</li>
+<li> brindar servicios de luz, apoyo a estudiantes a través de becas,</li>
+<li>apoyar a programas de combate a la pobreza, asistencia a adultos mayores, asistencia a niños de la calle, asistencia a la población en casos de emergencia, etc.</li>
+</ul>
+
+
+Para entender mejor a donde va nuestro dinero, en el 2015 de cada 100.000gs:</p>
+
+<img src="{% static 'img/18-billetes.png' %}" class="img-responsive">
+
+<h2>Funciones</h2>
+
+<p>Las actividades mencionadas, el Estado las realiza a fin de cumplir con las funciones de Salud, Educación, Seguridad Pública, establecidas en la Constitución Nacional.</p>
+
+<div class="col-md-6">
+	<h4>¿Cómo se gasta nuestro presupuesto?</h4>
+	<p>El tamaño de los circulos dependen de del monto presupuestado por función.</p>
+</div>
+<div class="col-md-6">
+<img src="{% static 'img/ciclo-01.png' %}" class="img-responsive">
+</div>
+
+
+<h2>ENTIDADES</h2>
+
+<p>Los recursos del Presupuesto General de la Nación se reparte entre: a) las Entidades de la Administración
+
+Central (Los ministerios, el poder legislativo y el poder judicial b) entidades Descentralizadas (Banca Central,
+
+Gobienos Departamentales, empresas Públicas (Ande INC etc), entidadaes de Seguridad Social ( IPS), Universi-
+dades nacionales, Contraloría General de la República etc.</p>
+
+
+<img src="{% static 'img/2-congreso.png' %}" class="img-responsive">
+</div>
+    {% endblock %}

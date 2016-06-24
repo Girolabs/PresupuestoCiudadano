@@ -1,0 +1,236 @@
+
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+
+
+
+@font-face {
+  font-family: 'Badabb';
+
+  src: url('/static/fonts/BADABB.woff') format('woff'), /* Pretty Modern Browsers */
+       url('/static/fonts/BADABB.TTF')  format('truetype'); /* Safari, Android, iOS */
+     
+}
+
+
+@font-face {
+  font-family: 'animeace';
+
+  src: url('') format('woff'), /* Pretty Modern Browsers */
+       url('/static/fonts/animeace2_reg.ttf')  format('truetype'); /* Safari, Android, iOS */
+     
+}
+
+
+@font-face {
+  font-family: 'animeace';
+
+  src: url('') format('woff'), /* Pretty Modern Browsers */
+       url('/static/fonts/animeace2_ital.ttf')  format('truetype'); /* Safari, Android, iOS */
+  font-style: italic;
+     
+}
+
+@font-face {
+  font-family: 'animeace';
+
+  src: url('') format('woff'), /* Pretty Modern Browsers */
+       url('/static/fonts/animeace2_bld.ttf')  format('truetype'); /* Safari, Android, iOS */
+  font-weight: bold;
+     
+}
+
+
+
+body {
+
+	font-family:  'Open Sans';
+      font-size: 16px;
+
+}
+
+
+h1	{
+	font-family: 'animeace';
+}
+
+.jumbotron2 h1 {
+
+  font-family: 'Badabb';
+
+}
+
+h2, h3,h4, h5	{
+	font-family:  'animeace';
+}
+
+.jumbotron2 h2 {
+    font-size: 14px;
+}
+
+
+.caja {
+        border: solid 2px #333;
+    border-radius: 2px;
+    padding: 10px 20px;
+   /* overflow: hidden;*/
+    background:white;
+}
+
+.caja.doble {
+    height: 200px;
+   
+}
+
+.doble img.img-responsive {
+   /* max-height: 150px;*/
+}
+
+
+.bg-amarillo {
+  background: #ffea8c !important;
+}
+
+.bg-gris {
+  background: #eeeeee !important;
+}
+
+
+.bg-verde {
+  background: #c1d995 !important;
+}
+
+.bg-lila {
+  background: #dedfde !important;
+}
+
+.bg-rojo {
+  background: #e6a7a8 !important;
+}
+
+
+img.congreso  {
+  position: relative;
+    top: -60px;
+}
+
+img.congreso  {
+    
+    width: 190px;
+ 
+}
+
+img.familia {
+      position: relative;
+    bottom: -20px;
+    width: 225px;
+}
+
+.btn-transparencia {
+  background: rgba(0, 0, 0, 0.47) !important;
+  color: white !important;
+}
+
+.btn-transparencia:hover {
+  background: rgba(0, 0, 0, 0.8) !important;
+  color: white !important;
+}
+/*
+.jumbotron {
+     background-image: url('../img/personitas-01.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+
+
+}*/
+
+.jumbotron2 {
+    padding-top: 0px;
+    padding-bottom: 30px;
+}
+
+.jumbotron2 h1{
+  font-size: 60px;
+
+}
+
+
+.financiacion img.dinero{
+width: 50%;
+}
+
+
+
+
+.financiacion .grafico {
+  width: 70%;
+}
+
+
+ .titulo {
+    margin-top: 100px;
+    text-align: left;
+}
+
+
+.img-card {
+  width: 200px;
+}
+
+
+.container p {
+      font-size: 16px;
+}
+
+
+.container.front-page {
+   background: #FAFAFA;
+}
+
+hr {
+      border-top: solid #ddd 2px;
+          width: 50%;
+}
+
+footer {
+    background: #BDBDBD;
+    padding: 20px 0px;
+}
+
+
+a.btn.btn-default {
+    border: solid 2px black;
+    border-radius: 0px;
+    font-family: 'animeace';
+}
+
+.navbar.navbar-inverse {
+    background-color: #333333;
+    color: #fff;
+     font-family: 'animeace';
+}
+}
+
+
+.container-principal {
+    padding-top: 20px;
+    padding-bottom: 30px;
+    background: #FAFAFA;
+    font-family: "Open Sans";
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+
+.ciclo img.ciclo{
+width: 50%;
+}
+
+
+
+
+

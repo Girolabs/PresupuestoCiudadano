@@ -1,0 +1,192 @@
+  {% extends "base.html" %}
+{% load staticfiles %}
+
+
+  {% block contenido%}
+
+  
+  
+
+    <div class="container container-principal front-page">
+
+    <div class="jumbotron2 row">
+      <div class="col-md-12"> 
+      <div class=" text-center" >
+        <img src="{% static 'img/personitas-01.png' %}" class="wow fadeInUp" data-wow-delay="1.0s"style="width: 327px;position: relative;
+">
+        <h1 style="margin-top:0px;">Presupuesto Ciudadano</h1>
+        <h2>Entendiendo el Presupuesto General de la Nación</h2>
+        <hr>
+      
+        <!-- <p><a class="btn btn-default btn-raised  btn-lg" href="#" role="button">Continuar leyendo</a></p> -->
+        </div>
+      </div>
+    </div>
+
+
+
+      <!-- Example row of columns -->
+      <div class="">
+        <div class="col-md-6">
+          <div class="caja doble wow fadeInLeft">
+              <h2></h2>
+              <div class="col-md-6">
+                <h5>Así como una familia debe preparar un presupuesto para llegar a fin de mes...</h5>
+               
+              
+
+              </div>
+              
+              <div class="col-md-6"> <img src="/static/img/1-familia.png" class="img-responsive familia"></div>
+             
+              
+          </div>
+        </div>
+        <div class="col-md-6  wow fadeInRight" >
+
+          <div class="caja doble bg-lila">
+                <h2></h2>
+
+                <div class="col-md-6"> 
+                  <img src="/static/img/2-congreso.png" class="congreso">
+
+
+                </div>
+                  <div class="col-md-6">    
+                    <h5>... el Gobierno elabora el presupuesto para cada año. </h5>
+                
+                     
+
+                  </div>
+             
+            
+               
+          </div>
+       </div>
+
+      </div>
+
+
+      <div class="">
+            <div class="col-md-12">
+              <div class="caja doble bg-amarillo wow fadeInLeft">
+                  <div class="col-md-8">      <h4>En EL presupuesto se estiman los ingresos y los gastos prioritarios para cumplir las funciones del GOBIERNO</h4></div>
+            
+                  <div class="col-md-4">
+                    <a href="#"> <img src="/static/img/pergamino-01.png" class="img-responsive " style="width: 250px;"></a>
+                   
+
+                  </div>
+
+                </div>
+            </div>  
+
+
+
+            
+      </div>
+
+      <div class="section">
+            <div class="">
+
+              <div class="col-md-12"> 
+                 <h3>conocé más sobre el presupuesto general de la nación:</h3>
+                 <hr>
+              </div>
+            
+                <div class="col-md-6">
+
+                  <div class="caja doble bg-lila wow fadeInLeft">
+                      
+                      <div class="col-md-6">
+
+
+                          <h5>¿Cómo se Financia el presUpuesto?</h5>
+
+                          <a class="btn btn-raised btn-default" href="financiacion"> Ver Más</a>
+
+
+                      </div>
+                      <div class="col-md-6  wow fadeInUp"  data-wow-delay="0.8s"><img src="/static/img/dinero-01.png" class="img-responsive"></div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                   <div class="caja doble wow fadeInRight bg-verde" data-wow-delay="0.5s">
+                     <div class="col-md-6 ">
+                          <img src="/static/img/24-moneda.png" class="img-responsive wow pulse infinite"  data-wow-delay="3.5s" data-wow-iteration="1">
+                      </div>
+                      <div class="col-md-6 center-block">
+                        <h5> ¿EN QUÉ SE GASTA el presUpuesto?</h5>
+                       
+
+                         <a class="btn btn-raised btn-default btn-transparencia" href="gastos"> Ver Más</a>
+
+
+                      </div>
+                     
+                     </div>
+                </div>
+               </div>   <!-- end row-->
+               <div class="row">
+                <div class="col-md-12"> 
+                      <div class="col-md-6">
+                          <div class="caja doble wow fadeInLeft bg-amarillo" data-wow-delay="1.0s">
+                              <div class="col-md-6">
+                                <img src="/static/img/20-ciclo.png" class="img-responsive wow rotateIn" data-wow-delay="1.4s">
+
+                              </div>
+                             <div class="col-md-6">
+                              <h5>¿Cómo se Elabora el presupuesto?</h5>
+                              <a class="btn btn-raised btn-default btn-transparencia" href="ciclo"> Ver Más</a>
+
+                             </div>
+                         
+                          </div>
+
+                      </div>
+                      <div class="col-md-6">
+                          <div class="caja doble  wow fadeInRight bg-rojo" data-wow-delay="1.3s">
+                               
+                             <div class="col-md-6">
+                              <h5>¿Cómo puedo controlar la ejecución del presupuesto?</h5>
+                               
+
+                                <a class="btn btn-raised  btn-default btn-transparencia" href="ejecucion"> Ver Más</a>
+                             </div>
+                              <div class="col-md-6">
+                                <img src="/static/img/23-lupa.png" class="img-responsive  wow pulse "  data-wow-delay="4s" >
+                              </div>
+                        
+                          </div>
+                      </div>
+                    </div>
+                </div> <!-- end row-->
+           
+
+            <div class="">
+                <div class="col-md-12">
+
+                  <div class="text-center">
+                    <img src="/static/img/nino-diario.png" class="img-responsive" style="width:30%;display: inline;">
+
+                  </div>
+
+                 
+
+                  Conocer el Presupuesto es esencial para conocer que usos se le dan a tus impuestos, cuáles son las prioridades de las instituciones públicas y cuánto se gasta en salud, educación, obras, justicia y otros servicios que determinan tu calidad de vida.
+
+                  <div class="col-md-12 text-center">
+
+                      <a class="btn btn-default btn-raised btn-large">descargá la guía presupuesto ciudadano</a>
+                  </div>
+
+                </div>
+            </div>  
+      </div>
+
+      <hr>
+
+      
+    </div> <!-- /container -->  
+
+    {% endblock %}
