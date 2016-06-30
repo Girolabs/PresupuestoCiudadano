@@ -3,7 +3,7 @@ a, a:visited, a:active {
 }
 
 .container {
-  max-width: 900px;
+ /* max-width: 900px;*/
   margin: auto;
 }
 
@@ -24,8 +24,8 @@ a, a:visited, a:active {
 
 
 #vis {
-  width: 940px;
-  height: 600px;
+/*  width: 940px;
+  height: 600px;*/
   clear: both;
   margin-bottom: 10px;
 }

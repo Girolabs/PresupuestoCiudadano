@@ -178,7 +178,7 @@ width: 50%;
 
 
  .titulo {
-    margin-top: 100px;
+    margin-top: 50px;
     text-align: left;
 }
 
@@ -259,6 +259,9 @@ margin-top: 51px;
   margin-top: 60px;
 }
 
+.header-titulo {
+    margin-bottom: 30px;
+}
 @media (max-width: 600px) {
 .caja {
     margin-bottom: 50px;
@@ -283,3 +286,63 @@ img.congreso {
 
 
 
+/* *********************************
+TREE MAP ******************/
+
+
+#chart {
+  background: #fff;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+#chart .title {
+    font-weight: bold;
+    font-size: 24px;
+    text-align: center;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+#chart text {
+  pointer-events: none;
+}
+
+#chart .grandparent text {
+  font-weight: bold;
+}
+
+#chart  rect {
+  fill: none;
+  stroke: #fff;
+}
+
+#chart rect.parent,
+.grandparent rect {
+  stroke-width: 2px;
+}
+
+#chart rect.parent {
+    pointer-events: none;
+}
+
+#chart .grandparent rect {
+  fill: orange;
+}
+
+#chart .grandparent:hover rect {
+  fill: #ee9700;
+}
+
+#chart .children rect.parent,
+#chart .grandparent rect {
+  cursor: pointer;
+}
+
+#chart .children rect.parent {
+  fill: #bbb;
+  fill-opacity: .5;
+}
+
+#chart .children:hover rect.child {
+  fill: #bbb;
+}
+/* END TREMAP ****/

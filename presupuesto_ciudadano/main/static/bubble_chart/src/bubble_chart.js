@@ -10,8 +10,8 @@
  */
 function bubbleChart() {
   // Constants for sizing
-  var width = 400;
-  var height = 260;
+  var width = 1200;
+  var height = 560;
 
   // tooltip for mouseover functionality
   var tooltip = floatingTooltip('gates_tooltip', 240);
@@ -141,7 +141,7 @@ function bubbleChart() {
     // with desired size.
     svg = d3.select(selector)
       .append('svg')
-      .attr('width', width)
+      .attr('width', "100%")
       .attr('height', height);
 
     // Bind nodes data to what will become DOM elements to represent them.
