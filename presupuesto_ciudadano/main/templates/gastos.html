@@ -63,7 +63,7 @@
 
 #burbuja 
 {
-  min-height: 500px;
+  min-height: 400px;
 }
 
 
@@ -98,9 +98,9 @@ Los gastos son los montos que el Estado calcula utilizar para:</p>
 <li> brindar servicios de luz, apoyo a estudiantes a través de becas,</li>
 <li>apoyar a programas de combate a la pobreza, asistencia a adultos mayores, asistencia a niños de la calle, asistencia a la población en casos de emergencia, etc.</li>
 </ul>
-<p>Para entender mejor a donde va nuestro dinero, en el 2015 de cada 100.000gs:</p>
 
 
+<h3>En el 2015 de cada 100.000gs:</h3>
 <div class="col-md-12 text-center">
 
 <img src="/static/img/Billete-gs.png" class="" style="
@@ -354,9 +354,15 @@ d3.csv("/static/treemap/entidades2015.csv", function(csv_data) {
     sum = _.reduce(d._children, function(memo, num){ return memo + num.value; }, 0)
 
   $(".treemap-titulo").html(d.name);
-  $(".treemap-monto").html("Valor: Gs. " + formatNumber( sum));
+  $(".treemap-monto").html("Gs. " + formatNumber( sum));
+
+      console.log(d._children);
       d._children.reverse().map(function(d){
-        $(".treemap-datos").append("<tr><td>" + d.name.slice(3)  + "</td><td>"+ formatNumber(d.value) +"</td></tr>");
+
+        if (d.name){
+          var name = d.name.slice(3) ;
+        }
+        $(".treemap-datos").append("<tr><td>" + name + "</td><td>"+ formatNumber(d.value) +"</td></tr>");
 
         
       })
@@ -394,7 +400,11 @@ d3.csv("/static/treemap/entidades2015.csv", function(csv_data) {
     g.append("text")
         .attr("dy", ".75em")
         .text(function(d) { 
-          texto_cortado =  d.name.slice(3) ;
+
+          if (d.name) {
+             texto_cortado =  d.name.slice(3) ;
+          }
+         
           //texto = texto_cortado.split;
          if (texto_cortado.length >  25)
           {

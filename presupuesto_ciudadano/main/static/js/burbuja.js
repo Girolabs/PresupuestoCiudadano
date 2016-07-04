@@ -13,7 +13,7 @@
 
       d3.csv("/static/js/"+archivo +".csv", function (error, data) {
 
-        var width = 900, height = 400;
+        var width = $("#burbuja").width(), height = 400;
         var fill = d3.scale.ordinal().range(['#827d92','#827354','#523536','#72856a','#2a3285','#383435'])
         var svg = d3.select("#burbuja").append("svg")
             .attr("width", width)
@@ -80,7 +80,7 @@ else {
         
 
         function draw (varname) {
-          var centers = getCenters(varname, [900, 400]);
+          var centers = getCenters(varname, [$("#burbuja").width(), 400]);
           force.on("tick", tick(centers, varname));
           labels(centers)
           force.start();
@@ -144,7 +144,7 @@ else {
             html : true,
             content: function() { 
               return "<br/>Funcion: " + d.funcion.split("-")[1] + 
-                    "<br/>Monto: Gs." + formatNumber(d.monto); ; 
+                    "<br/>Monto: Gs. " + formatNumber(d.monto); ; 
             }
           });
           $(this).popover('show')
