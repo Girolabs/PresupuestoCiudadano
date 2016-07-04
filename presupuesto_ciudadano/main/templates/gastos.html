@@ -16,7 +16,7 @@
 @import url(../style.css?aea6f0a);
 
 #treemap {
-  width: 960px;
+  width: 100%;
   height: 500px;
   background: #ddd;
 }
@@ -160,14 +160,28 @@ dades nacionales, Contraloría General de la República etc.</p>
 
 
 <div class="col-md-6">
-	<div id="chart"></div>
+	
 
   <div id="treemap"></div>
   
 </div>
-<div class="col-md-6">
-<p class="texto1">
-</p>
+<div class="col-md-6 ">
+
+  <h3 class="treemap-titulo"></h3>
+ <h5 class="treemap-monto"></h5>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Funcion</th>
+        <th>Monto</th>
+       
+      </tr>
+    </thead>
+    <tbody class="treemap-datos">
+      
+    </tbody>
+  </table>
+
 </div>
 
 
@@ -195,7 +209,7 @@ dades nacionales, Contraloría General de la República etc.</p>
 
 
 var margin = {top: 20, right: 0, bottom: 0, left: 0},
-    width = 960,
+    width = $("#treemap").width(),
     height = 500 - margin.top - margin.bottom,
     formatNumber = d3.format(",d"),
     transitioning;
@@ -261,7 +275,7 @@ function reSortRoot(root,value_key) {
 
 
 
-d3.csv("/static/treemap/entidades.csv", function(csv_data) {
+d3.csv("/static/treemap/entidades2015.csv", function(csv_data) {
 
   
       // Add, remove or change the key values to change the hierarchy. 
@@ -276,7 +290,7 @@ d3.csv("/static/treemap/entidades.csv", function(csv_data) {
       var root = {};
       
       // Add the data to the tree
-      root.key = "Gastos";
+      root.key = "Gasto Total";
       root.values = nested_data;
     
       // Change the key names and children values from .next and add values for a chosen column to define the size of the blocks
@@ -288,7 +302,7 @@ d3.csv("/static/treemap/entidades.csv", function(csv_data) {
   initialize(root);
   accumulate(root);
   layout(root);
-  console.log(root);
+ console.log(root);
   display(root);
 
   function initialize(root) {
@@ -335,6 +349,18 @@ d3.csv("/static/treemap/entidades.csv", function(csv_data) {
         .on("click", transition)
       .select("text")
         .text(name(d));
+  $(".treemap-datos").html("");
+
+    sum = _.reduce(d._children, function(memo, num){ return memo + num.value; }, 0)
+
+  $(".treemap-titulo").html(d.name);
+  $(".treemap-monto").html("Valor: Gs. " + formatNumber( sum));
+      d._children.reverse().map(function(d){
+        $(".treemap-datos").append("<tr><td>" + d.name.slice(3)  + "</td><td>"+ formatNumber(d.value) +"</td></tr>");
+
+        
+      })
+
 
     var g1 = svg.insert("g", ".grandparent")
         .datum(d)
@@ -344,10 +370,13 @@ d3.csv("/static/treemap/entidades.csv", function(csv_data) {
         .data(d._children)
       .enter().append("g");
 
+    
+
+
     g.filter(function(d) { return d._children; })
         .classed("children", true)
         .on("click", transition);
-
+  
     g.selectAll(".child")
         .data(function(d) { return d._children || [d]; })
       .enter().append("rect")
@@ -359,7 +388,7 @@ d3.csv("/static/treemap/entidades.csv", function(csv_data) {
         .style("fill", function(d) { ;return color(d.value); })
         .call(rect)
       .append("title")
-        .text(function(d) { return formatNumber(d.value); });
+        .text(function(d) { return 'Gs. '+  formatNumber(d.value); });
 
 
     g.append("text")
@@ -385,7 +414,7 @@ d3.csv("/static/treemap/entidades.csv", function(csv_data) {
 
      g.append("text")
         .attr("dy", "1.85em")
-        .text(function(d) { return  formatNumber(d.value); })
+        .text(function(d) { return 'Gs. '+  formatNumber(d.value); })
         .style("opacity", function(d) { return x(d.x + d.dx) - x(d.x) > 175 ? 1 : 0; })
         .call(text);
 
@@ -394,6 +423,9 @@ d3.csv("/static/treemap/entidades.csv", function(csv_data) {
     function transition(d) {
       if (transitioning || !d) return;
       transitioning = true;
+      console.log(d._children);
+
+
 
       var g2 = display(d),
           t1 = g1.transition().duration(750),
@@ -414,7 +446,7 @@ d3.csv("/static/treemap/entidades.csv", function(csv_data) {
 
       // Transition to the new view.
       t1.selectAll("text").call(text).style("fill-opacity", 0);
-      t2.selectAll("text").call(text).style("fill-opacity", 1);
+      t2.selectAll("text").call(text).style("fill-opacity", 1).style("opacity", function(d) { return x(d.x + d.dx) - x(d.x) > 200 /*this.getComputedTextLength()  */? 1 : 0; });
       t1.selectAll("rect").call(rect);
       t2.selectAll("rect").call(rect);
 
@@ -442,7 +474,7 @@ d3.csv("/static/treemap/entidades.csv", function(csv_data) {
 
   function name(d) {
     return d.parent
-        ? name(d.parent) + "." + d.name
+        ? name(d.parent) + " > " + d.name
         : d.name;
   }
 });

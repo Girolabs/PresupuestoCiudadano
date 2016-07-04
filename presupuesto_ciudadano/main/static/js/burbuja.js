@@ -1,6 +1,8 @@
 
      function burbuja(archivo)
      {
+
+         formatNumber = d3.format(",d"),
        inicio = 0;
         console.log(archivo);
       if (archivo == ''){
@@ -142,7 +144,7 @@ else {
             html : true,
             content: function() { 
               return "<br/>Funcion: " + d.funcion.split("-")[1] + 
-                    "<br/>Monto: " + d.monto; 
+                    "<br/>Monto: Gs." + formatNumber(d.monto); ; 
             }
           });
           $(this).popover('show')
