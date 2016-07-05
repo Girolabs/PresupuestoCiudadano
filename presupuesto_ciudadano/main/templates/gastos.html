@@ -100,11 +100,11 @@ Los gastos son los montos que el Estado calcula utilizar para:</p>
 </ul>
 
 
-<h3>En el 2015 de cada 100.000gs:</h3>
+<h3>En el 2015 de cada 100.000 gs se gastó:</h3>
 <div class="col-md-12 text-center">
 
 <img src="/static/img/Billete-gs.png" class="" style="
-    max-height: 100%;
+    max-width: 100%;
 ">
 
 </div>
@@ -128,7 +128,7 @@ Los gastos son los montos que el Estado calcula utilizar para:</p>
        
 
         <label class="btn btn-default" id="fuente_financiamiento">
-          <input type="radio" name="options"> Fuente de Dinanciamiento
+          <input type="radio" name="options"> Fuente de Financiamiento
         </label>
 
         <label class="btn btn-default" id="grupo_economico">
@@ -275,16 +275,25 @@ function reSortRoot(root,value_key) {
 
 
 
-d3.csv("/static/treemap/entidades2015.csv", function(csv_data) {
+d3.csv("/static/treemap/entidadesFinal.csv", function(csv_data) {
 
-  
+
+         historic_csv_data =  csv_data;
+          
+          csv_data = csv_data.filter(function (el) {
+          return el.anho == "2015";
+        });
       // Add, remove or change the key values to change the hierarchy. 
-      var nested_data = d3.nest()
+      nested_data = d3.nest()
+             // .key(function(d)  { return d.anho; })
               .key(function(d)  { return d.nivel; })
               .key(function(d)  { return d.entidad; })
               .key(function(d)  { return d.programa; })
+             // .key(function(d)  { return d.anho; })
             //  .key(function(d)  { return d.Ticket_class_description; })
               .entries(csv_data);
+
+
       
       // Creat the root node for the treemap
       var root = {};
@@ -356,7 +365,7 @@ d3.csv("/static/treemap/entidades2015.csv", function(csv_data) {
   $(".treemap-titulo").html(d.name);
   $(".treemap-monto").html("Gs. " + formatNumber( sum));
 
-      console.log(d._children);
+     // console.log(d._children);
       d._children.reverse().map(function(d){
 
         if (d.name){
@@ -365,7 +374,29 @@ d3.csv("/static/treemap/entidades2015.csv", function(csv_data) {
         $(".treemap-datos").append("<tr><td>" + name + "</td><td>"+ formatNumber(d.value) +"</td></tr>");
 
         
-      })
+      });
+
+
+        prueba = historic_csv_data.filter(function (el) {
+
+
+          return el.programa ==  d.name ||  el.subprograma ==  d.name ||  el.nivel ==  d.name;
+        });
+
+        prueba1 = d3.nest()
+              .key(function(d)  { return d.anho; })
+              .key(function(d)  { return d.nivel; })
+              .key(function(d)  { return d.entidad; })
+              .key(function(d)  { return d.programa; })
+              .key(function(d)  { return d.anho; })
+            //  .key(function(d)  { return d.Ticket_class_description; })
+              .entries(prueba);
+       prueba1 = reSortRoot(prueba1,"monto");
+
+        console.log("prueba");
+
+        console.log(prueba1);
+
 
 
     var g1 = svg.insert("g", ".grandparent")
@@ -381,20 +412,24 @@ d3.csv("/static/treemap/entidades2015.csv", function(csv_data) {
 
     g.filter(function(d) { return d._children; })
         .classed("children", true)
-        .on("click", transition);
+        .on("click", transition)
+         .on("mouseover", function (d) { showPopover.call(this, d); })
+          .on("mouseout", function (d) { removePopovers(); })
+;
   
     g.selectAll(".child")
         .data(function(d) { return d._children || [d]; })
       .enter().append("rect")
         .attr("class", "child")
         .call(rect);
-    var color = d3.scale.category20c();
+    var color = d3.scale.category20();
     g.append("rect")
         .attr("class", "parent")
         .style("fill", function(d) { ;return color(d.value); })
         .call(rect)
       .append("title")
-        .text(function(d) { return 'Gs. '+  formatNumber(d.value); });
+        .text(function(d) { return 'Gs. '+  formatNumber(d.value); })
+        ;
 
 
     g.append("text")
@@ -433,7 +468,7 @@ d3.csv("/static/treemap/entidades2015.csv", function(csv_data) {
     function transition(d) {
       if (transitioning || !d) return;
       transitioning = true;
-      console.log(d._children);
+      //console.log(d._children);
 
 
 
@@ -489,6 +524,30 @@ d3.csv("/static/treemap/entidades2015.csv", function(csv_data) {
   }
 });
 
+   
+
+
+ function removePopovers () {
+          $('.popover').each(function() {
+            $(this).remove();
+          }); 
+        }
+
+        function showPopover (d) {
+          $(this).popover({
+            placement: 'auto top',
+            container: 'body',
+            trigger: 'manual',
+            html : true,
+            content: function() { 
+            //  console.log(d);
+              return "<h5>"+ d.parent.name+"</h5><hr><br/> <b>Funcion:</b> " + d.name.slice(3) + 
+                    "<br/><b>Monto:</b> Gs. " + formatNumber(d.value); ; 
+            }
+          });
+          $(this).popover('show')
+        }
+
 
 
 </script>
@@ -502,4 +561,6 @@ d3.csv("/static/treemap/entidades2015.csv", function(csv_data) {
 
 
 </script>
+
+
     {% endblock %}

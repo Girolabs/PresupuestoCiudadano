@@ -77,6 +77,15 @@ h2, h3,h4, h5	{
     font-size: 14px;
 }
 
+img.congreso {
+       position: relative;
+    /* top: 0px; */
+    text-align: center;
+    top: -7px;
+    width: 340px;
+    left: -60px;;
+}
+
 
 .caja {
         border: solid 2px #333;
@@ -118,20 +127,10 @@ h2, h3,h4, h5	{
 }
 
 
-img.congreso  {
-  position: relative;
-    top: -60px;
-}
-
-img.congreso  {
-    
-    width: 190px;
- 
-}
 
 img.familia {
       position: relative;
-    bottom: -20px;
+    bottom: 30px;
     width: 225px;
 }
 
@@ -269,11 +268,7 @@ margin-top: 51px;
 }
 
 
-img.congreso {
-    position: relative;
-     top: 0px; 
-    text-align: center;
-}
+
 
 
 .nino {
