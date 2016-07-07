@@ -21,7 +21,7 @@
         console.log(data)
 
         data = data.filter(function (el) {
-  return el.anho == "2015";
+  return el.anho == $('#sel1 option:selected').text();
 });
         for (var j = 0; j < data.length; j++) {
           
@@ -188,3 +188,14 @@ else {
         console.log(this.id)
           burbuja(this.id);
         });
+
+
+    $( "#sel1" ).change(function(){
+$("#burbuja").html("");
+   btnFiltro = $(".filtros-burbuja .btn.active").attr('id') ;
+   console.log(btnFiltro);
+
+
+ burbuja(btnFiltro);
+   
+});

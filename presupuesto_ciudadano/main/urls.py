@@ -15,6 +15,7 @@ urlpatterns = [
     url(r'^ciclo/$', views.ciclo, name='ciclo'),
 	url(r'^gastos/$', views.gastos, name='gastos'),
 	url(r'^ejecucion/$', views.ejecucion, name='ejecucion'),
-   
+   url(r'^equipo-tecnico/$', views.equipoTecnico, name='equipo-tecnico'),
+   url(r'^sobre/$', views.sobre, name='sobre'),
 
 ]

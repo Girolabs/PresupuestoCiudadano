@@ -32,3 +32,11 @@ def gastos(request):
 
 def ejecucion(request):      
     return render_to_response('ejecucion.html')
+
+
+def equipoTecnico(request):      
+    return render_to_response('equipo-tecnico.html')
+
+
+def sobre(request):      
+    return render_to_response('sobre.html')

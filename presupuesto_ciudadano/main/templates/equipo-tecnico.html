@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+
+					
+
+  {% block contenido%}
+
+
+
+    <div class="container container-principal ciclo">
+
+
+
+		<div class="bg-amarillo row header-titulo">
+			<div class="col-md-12">
+
+				<div class="">
+					<div class="col-md-6 titulo">
+						<h1 class="wow fadeInLeft">¿Cómo se elabora el presupuesto?</h1>
+						<a class="btn btn-default  wow fadeInUp">Descargar este capítulo</a>
+					</div>
+
+					<div class="col-md-6 text-center">
+						<img class=" ciclo wow fadeInUp" src="{% static 'img/20-ciclo.png' %} " > </img>
+					</div>
+				</div>
+				
+			</div>
+			
+		</div>
+<div class="row">
+				<div class="col-md-12 text-center">
+
+					<div class="embed-responsive embed-responsive-16by9">
+  								<iframe src='https://cdn.knightlab.com/libs/timeline3/latest/embed/index.html?source=1f9oiFEj9jW_CrSLTY7sy2VubwWGOAGt04AYgMW6mcb4&font=Default&lang=es&initial_zoom=2&height=650'  height='500' frameborder='0'></iframe>
+					</div>
+					
+
+			
+
+
+				</div>
+</div>
+
+</div>
+    {% endblock %}

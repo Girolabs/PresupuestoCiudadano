@@ -20,7 +20,7 @@
          <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800,300italic,400italic,600italic,700italic,800italic' rel='stylesheet' type='text/css'>
         <style>
             body {
-                padding-top: 50px;
+              /*  padding-top: 50px;*/
                
             }
 
@@ -38,7 +38,7 @@
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <!-- navbar-fixed-top -->
-    <nav class="navbar navbar-inverse navbar-fixed-top " role="navigation">
+    <nav class="navbar navbar-inverse navbar-fixed-top " role="navigation" style="display: none;">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -49,8 +49,15 @@
           </button>
           <a class="navbar-brand" href="/">Presupuesto ciudadano</a>
         </div>
-        <div id="navbar" class="navbar-collapse collapse">
-         
+        <div id="navbar" class="navbar-collapse collapse  navbar-right">
+                  <ul class="nav navbar-nav">
+                  <li id="menu-financiacion" ><a href="/financiacion">qué es</a></li>
+                  <li id="menu-gastos"><a href="/gastos">gasto</a></li>
+                  <li id="menu-ciclo"  class=""><a href="/ciclo">proceso</a></li>
+                  <li id="menu-ejecucion" ><a href="/ejecucion">ejecucion</a></li>
+
+                  
+                </ul>
         </div><!--/.navbar-collapse -->
       </div>
     </nav>
@@ -66,7 +73,7 @@
    <footer>
     <div class="container">
 
-      <p> <a href="">sobre el proyecto </a>| <a href="">equipo tecnico</a> |  <a href="">DATOS ABIERTOS</a></p>
+      <p> <a href="/sobre">sobre el proyecto </a>| <a href="/equipo-tecnico">equipo tecnico</a> |  <a href="https://datos.hacienda.gov.py/">DATOS ABIERTOS</a></p>
 
     </div>
         
@@ -88,6 +95,41 @@
         <script>
               new WOW().init();
               $.material.init();
+
+              (function ($) {
+  $(document).ready(function(){
+
+console.log("jsjsje");
+    url = window.location.pathname
+    url = url.replace(/\//g,"");
+    $("#menu-"+url).addClass("active");
+    console.log(url);
+    
+  // hide .navbar first
+  $(".navbar").hide();
+  
+  // fade in .navbar
+  $(function () {
+    $(window).scroll(function () {
+            // set distance user needs to scroll before we fadeIn navbar
+      if ($(this).scrollTop() > 300) {
+        $('.navbar').fadeIn();
+      } else {
+        $('.navbar').fadeOut();
+      }
+    });
+
+  
+  });
+
+
+
+});
+  }(jQuery));
+
+
+
+
         </script>
 
         <script src="{% static 'js/main.js' %}"></script>

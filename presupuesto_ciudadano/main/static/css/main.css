@@ -220,9 +220,15 @@ a.btn.btn-default {
 }
 
 
+.navbar-right a {
+    font-family: "Open Sans";
+    font-weight: 900;
+}
+
+
 
 .container-principal {
-  padding-top: 9px;
+ /* padding-top: 9px;*/
     padding-bottom: 30px;
     background: #FAFAFA;
     font-family: "Open Sans";

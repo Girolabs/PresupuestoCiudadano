@@ -121,7 +121,29 @@ Los gastos son los montos que el Estado calcula utilizar para:</p>
 <div class="col-md-12">
 	<div class="col-md-12">
 
-  <div class="btn-group  filtros" data-toggle="buttons">
+    <div class="row">
+
+      <div class="form-group col-md-4" style="margin-top:0px;">
+  <label for="sel1">Seleccionar Año:</label>
+  <select class="form-control" id="sel1">
+    <option>2011</option>
+    <option>2012</option>
+    <option>2013</option>
+    <option>2014</option>
+    <option>2015</option>
+  </select>
+</div>
+
+
+
+
+
+
+
+    </div>
+       
+
+  <div class="btn-group  filtros filtros-burbuja" data-toggle="buttons">
         <label class="btn btn-default active" id="">
           <input type="radio" name="options"> Todos
         </label>
@@ -139,6 +161,7 @@ Los gastos son los montos que el Estado calcula utilizar para:</p>
           <input type="radio" name="options"> Tipo de Presupuesto
         </label>
        
+
        
       </div>
 
@@ -160,7 +183,20 @@ dades nacionales, Contraloría General de la República etc.</p>
 
 
 <div class="col-md-6">
-	
+	<div class="row">
+
+      <div class="form-group col-md-4" style="margin-top:0px;">
+        <label for="sel2">Seleccionar Año:</label>
+        <select class="form-control" id="sel2">
+          <option>2011</option>
+          <option>2012</option>
+          <option>2013</option>
+          <option>2014</option>
+          <option>2015</option>
+        </select>
+      </div>
+    </div>
+       
 
   <div id="treemap"></div>
   
@@ -275,13 +311,17 @@ function reSortRoot(root,value_key) {
 
 
 
+function Treemap (anio) {
+
+
+
 d3.csv("/static/treemap/entidadesFinal.csv", function(csv_data) {
 
 
          historic_csv_data =  csv_data;
           
           csv_data = csv_data.filter(function (el) {
-          return el.anho == "2015";
+          return el.anho == anio;
         });
       // Add, remove or change the key values to change the hierarchy. 
       nested_data = d3.nest()
@@ -524,6 +564,10 @@ d3.csv("/static/treemap/entidadesFinal.csv", function(csv_data) {
   }
 });
 
+}// End Treemap
+
+Treemap("2015");
+
    
 
 
@@ -547,6 +591,21 @@ d3.csv("/static/treemap/entidadesFinal.csv", function(csv_data) {
           });
           $(this).popover('show')
         }
+
+
+
+
+
+    $( "#sel2" ).change(function(){
+
+
+$("#treemap .depth").remove();
+Treemap($('#sel2 option:selected').text());
+   
+
+
+   
+});
 
 
 
