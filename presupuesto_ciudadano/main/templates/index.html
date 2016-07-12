@@ -189,4 +189,43 @@
       
     </div> <!-- /container -->  
 
+
+
+
     {% endblock %}
+
+
+      {% block script%}
+
+          <script type="text/javascript">
+(function ($) {
+  $(document).ready(function(){
+
+   
+    
+  // hide .navbar first
+  $(".navbar").hide();
+  
+  // fade in .navbar
+  $(function () {
+    $(window).scroll(function () {
+            // set distance user needs to scroll before we fadeIn navbar
+      if ($(this).scrollTop() > 300) {
+        $('.navbar').fadeIn();
+      } else {
+        $('.navbar').fadeOut();
+      }
+    });
+
+  
+  });
+
+
+
+});
+  }(jQuery));
+
+    </script>
+
+  
+  {% endblock %}
