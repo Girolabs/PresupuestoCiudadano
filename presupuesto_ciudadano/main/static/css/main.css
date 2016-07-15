@@ -63,6 +63,13 @@ footer  {
   font-family: 'animeace';
 }
 
+
+footer .atribucion {
+  font-size: 14px;
+    font-family: 'Open Sans';
+    text-align: right;
+}
+
 .jumbotron2 h1 {
 
   font-family: 'Badabb';
