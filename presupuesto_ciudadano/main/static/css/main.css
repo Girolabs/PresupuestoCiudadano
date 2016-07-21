@@ -274,24 +274,6 @@ margin-top: 51px;
 .header-titulo {
     margin-bottom: 30px;
 }
-@media (max-width: 600px) {
-.caja {
-    margin-bottom: 50px;
-    height: auto !important;
-}
-
-
-
-
-
-.nino {
-  width:70%;display: inline;
-}
-
-
-
-}
-
 
 
 /* *********************************
@@ -354,3 +336,45 @@ TREE MAP ******************/
   fill: #bbb;
 }
 /* END TREMAP ****/
+
+
+
+img.hacienda.img-responsive {
+    max-width: 60%;
+}
+
+
+@media (max-width: 1000px)    {
+  
+img.congreso {
+    position: relative;
+    /* top: 0px; */
+    text-align: center;
+    top: -7px;
+    width: 235px;
+    left: -60px;
+}
+
+}
+@media (max-width: 860px) {
+.caja {
+    margin-bottom: 50px;
+    height: auto !important;
+}
+
+
+
+
+
+.nino {
+  width:70%;display: inline;
+}
+
+
+
+}
+
+
+
+
+.caja.doble 
