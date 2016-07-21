@@ -14,7 +14,7 @@
       d3.csv("/static/js/"+archivo +".csv", function (error, data) {
 
         var width = $("#burbuja").width(), height = 400;
-        var fill = d3.scale.ordinal().range(['#607D8B','#C9D997','#009688','#673AB7','#FFA500','#EEBBBA'])
+        var fill = d3.scale.category20();// d3.scale.ordinal().range(['#607D8B','#C9D997','#009688','#673AB7','#FFA500','#EEBBBA'])
         var svg = d3.select("#burbuja").append("svg")
             .attr("width", width)
             .attr("height", height);
