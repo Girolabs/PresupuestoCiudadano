@@ -29,6 +29,14 @@
           if (dataPrueba < 5 ){
             dataPrueba = 5; // Tamaño minimo de las burbujas pequeñas.
           }
+          if (dataPrueba < 3 ){
+            dataPrueba = 3; // Tamaño minimo de las burbujas pequeñas.
+          }
+
+           if (dataPrueba < 2 ){
+            dataPrueba = 1; // Tamaño minimo de las burbujas pequeñas.
+          }
+
           data[j].radius = dataPrueba; // el radio de la burbuja
           data[j].x = Math.random() * width; // pongo los puntos en cualquier lugar
           data[j].y = Math.random() * height; // pongo los puntos en cualquier lugar

@@ -174,12 +174,14 @@ Los gastos son los montos que el Estado calcula utilizar para:</p>
 
 <h2>ENTIDADES</h2>
 
-<p>Los recursos del Presupuesto General de la Nación se reparte entre: a) las Entidades de la Administración
+<p>Los recursos del Presupuesto General de la Nación se reparte entre: 
 
-Central (Los ministerios, el poder legislativo y el poder judicial b) entidades Descentralizadas (Banca Central,
+  <ul>
 
-Gobienos Departamentales, empresas Públicas (Ande INC etc), entidadaes de Seguridad Social ( IPS), Universi-
-dades nacionales, Contraloría General de la República etc.</p>
+    <li>Entidades de la Administración Central (Los ministerios, el poder legislativo y el poder judicial</li>
+    <li>Entidades Descentralizadas (Banca Central, Gobienos Departamentales, Empresas Públicas (Ande, INC etc), entidadaes de Seguridad Social (IPS), Universidades nacionales, Contraloría General de la República etc.</li>
+   
+  </ul> </p>
 
 
 <div class="col-md-6">
@@ -208,7 +210,7 @@ dades nacionales, Contraloría General de la República etc.</p>
   <table class="table table-striped">
     <thead>
       <tr>
-        <th>Funcion</th>
+        <th>Entidad/Programa/Sub-programa</th>
         <th>Monto</th>
        
       </tr>
@@ -329,6 +331,8 @@ d3.csv("/static/treemap/entidadesFinal.csv", function(csv_data) {
               .key(function(d)  { return d.nivel; })
               .key(function(d)  { return d.entidad; })
               .key(function(d)  { return d.programa; })
+              .key(function(d)  { return d.subprograma; })
+              .key(function(d)  { return d.subprograma; })
              // .key(function(d)  { return d.anho; })
             //  .key(function(d)  { return d.Ticket_class_description; })
               .entries(csv_data);
@@ -405,12 +409,26 @@ d3.csv("/static/treemap/entidadesFinal.csv", function(csv_data) {
   $(".treemap-titulo").html(d.name);
   $(".treemap-monto").html("Gs. " + formatNumber( sum));
 
-     // console.log(d._children);
+      console.log(d._children);
       d._children.reverse().map(function(d){
 
         if (d.name){
-          var name = d.name.slice(3) ;
+         
+          var name = d.name.slice(3);
+
         }
+        else 
+          {
+            console.log(d);
+
+            var name = d.subprograma.slice(3);
+
+             }
+
+
+
+
+       
         $(".treemap-datos").append("<tr><td>" + name + "</td><td>"+ formatNumber(d.value) +"</td></tr>");
 
         
@@ -585,8 +603,8 @@ Treemap("2015");
             html : true,
             content: function() { 
             //  console.log(d);
-              return "<h5>"+ d.parent.name+"</h5><hr><br/> <b>Funcion:</b> " + d.name.slice(3) + 
-                    "<br/><b>Monto:</b> Gs. " + formatNumber(d.value); ; 
+              return "<h5>"+ d.parent.name+"</h5><hr><br/> <b> " + d.name.slice(3) + 
+                    "</b><br/><b>Monto:</b> Gs. " + formatNumber(d.value); ; 
             }
           });
           $(this).popover('show')
